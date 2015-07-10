@@ -1,0 +1,22 @@
+Hacker
+  FirstName
+  LastName
+  Gender
+  Age
+  ShirtSize
+  School
+  Email
+  GraduatingYear
+  Major
+  Github
+  LinkedIn
+  Resume
+  FoodRestrictions
+
+Application
+  Hacker
+  WhyVH?
+  FirstHackathon?
+  OtherHackathons?
+  TravelReimbursement?
+  TravelFromSchool?

@@ -1,0 +1,42 @@
+body {
+  background: url("http://www.s3.vandyhacks.org/public/final.jpeg") repeat 50% -3px fixed transparent;
+  background-size: cover;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.subtitle {
+  font-size: 3vw;
+}
+
+.top-buffer {
+  margin-top: 40px;
+}
+
+.top-buffer-80 {
+  margin-top: 80px;
+}
+
+.top-percent-buffer {
+  margin-top: 10%;
+}
+
+#confirmation {
+  display: none;
+}
+
+#login-fb {
+  display: none;
+}
+
+.custom-panel {
+  border-color: rgba(0,0,0,0);
+  background-color: rgba(99, 62, 37, 0.72);
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(202, 202, 202)
+}
