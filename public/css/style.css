@@ -40,3 +40,9 @@ a {
 a:hover {
   color: rgb(202, 202, 202)
 }
+
+#mlh {
+  background-color: rgba(255,255,255,0.5);
+  max-height: 150px;
+  max-width: 256px;
+}
