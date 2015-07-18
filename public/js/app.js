@@ -1,9 +1,9 @@
 var $ = require('jquery');
+var constants = require('./constants');
+var FAQ = require('./FAQ');
 var React = require('react');
 var Parse = require('parse').Parse;
 var PreRegisterBox = require('./PreRegisterBox');
-
-var x = require('./jquery.fittext-1.2.js');
 
 var LOCALHOST = 'localhost';
 var FB_PROD_ID = 508263295995091;
@@ -20,8 +20,10 @@ Parse.FacebookUtils.init({
 });
 
 React.render(
+  <FAQ questions={constants.FAQ} />,
+  document.getElementById('faq')
+);
+React.render(
   <PreRegisterBox />,
   document.getElementById('react-hook')
 );
-
-$(".full-width-text").fitText();
