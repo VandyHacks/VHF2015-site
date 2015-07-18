@@ -1,9 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
 
 body {
-  background: url("http://www.s3.vandyhacks.org/public/final.jpeg") repeat 50% -3px fixed transparent;
-  background-size: cover;
-  color: rgba(255, 255, 255, 0.85);
+  color: black;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.gold {
+  color: rgb(234, 168, 57);
 }
 
 .header {
@@ -25,6 +29,28 @@ body {
 
 .faq-answer {
   color: white;
+}
+
+.intro-row {
+  margin-bottom: 10px;
+}
+
+a.button {
+  text-align: center;
+  width: 85px; /* fixed to largest button size (currently 'Sponsor') */
+  display: inline-block;
+  color: rgb(234, 168, 57);
+  font-size: 16px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 3px solid rgb(234, 168, 57);
+}
+
+a.button:hover {
+  color: rgb(234, 168, 57);
+  text-decoration: initial;
 }
 
 #logo {
