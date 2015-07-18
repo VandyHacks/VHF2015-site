@@ -1,9 +1,9 @@
 var $ = require('jquery');
 var constants = require('./constants');
-var FAQ = require('./FAQ');
+var FAQ = require('./FAQ.react');
 var React = require('react');
 var Parse = require('parse').Parse;
-var PreRegisterBox = require('./PreRegisterBox');
+var PreRegisterBox = require('./PreRegisterBox.react');
 
 var LOCALHOST = 'localhost';
 var FB_PROD_ID = 508263295995091;
