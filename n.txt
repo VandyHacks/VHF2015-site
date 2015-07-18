@@ -1,4 +1,9 @@
+Hackathon
+  Name
+  Date
+
 Hacker
+  HackerID
   FirstName
   LastName
   Gender
@@ -7,16 +12,18 @@ Hacker
   School
   Email
   GraduatingYear
+  FirstHackathon?
+  OtherHackathons?
   Major
   Github
   LinkedIn
   Resume
   FoodRestrictions
+  SpecialNeeds
 
 Application
-  Hacker
+  HackerID
+  HackathonID
   WhyVH?
-  FirstHackathon?
-  OtherHackathons?
   TravelReimbursement?
   TravelFromSchool?

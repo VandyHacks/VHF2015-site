@@ -12,6 +12,8 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="http://www.vandyhacks.org/img/fbphoto.png" />
 
+  <script src="//connect.facebook.net/en_US/all.js"></script>
+
   <link rel="stylesheet" href="css/bootstrap-3.3.5.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,25 +27,7 @@
       <h1 class="text-center subtitle">October 2-4: Nashville, TN</h1>
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 top-buffer">
-      <div class="panel panel-default custom-panel">
-        <div class="panel-body">
-          <div id="login-fb" class="text-center">
-            <span>Sign in below, and we'll let you know when registration opens!</span>
-            <a href="#" onclick="Main.login();return false;">
-              <img src="/sign-in.png" class="img-responsive">
-            </a>
-          </div>
-          <div id="confirmation">
-            <form id="emailChangeForm" class="form-inline text-center">
-              <div class="form-group">
-                <label class="sr-only" for="emailField">Email address</label>
-                <input type="email" class="form-control" id="emailField" placeholder="Email">
-              </div>
-              <button type="submit" class="btn btn-default" onclick="Main.changeEmail();return false;">Change Email</button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <div id="react-hook"></div>
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 text-center">
       <h3 class="text-center">Partners</h3>
@@ -74,11 +58,7 @@
   </script>
   <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6017825709898&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
-  <script src="js/parse-1.4.2.min.js"></script>
-  <script src="js/jquery-2.1.3.min.js"></script>
-  <script src="js/jquery.fittext-1.2.js"></script>
-  <script src="js/bootstrap-3.3.5.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/fb.js"></script>
+  <script src="/js/bundle.js"></script>
+
 </body>
 </html>
