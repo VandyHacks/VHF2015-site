@@ -4,6 +4,10 @@ body {
   color: rgba(255, 255, 255, 0.85);
 }
 
+#logo {
+  max-height: 350px;
+}
+
 .subtitle {
   font-size: 3vw;
 }
@@ -18,14 +22,6 @@ body {
 
 .top-percent-buffer {
   margin-top: 10%;
-}
-
-#confirmation {
-  display: none;
-}
-
-#login-fb {
-  display: none;
 }
 
 .custom-panel {
