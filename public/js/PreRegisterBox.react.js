@@ -1,8 +1,8 @@
 var React = require('react');
 var Parse = require('parse').Parse;
 var ParseUtils = require('./ParseUtils');
-var PreRegisterEntry = require('./PreRegisterEntry');
-var PreRegisterConfirmation = require('./PreRegisterConfirmation');
+var PreRegisterEntry = require('./PreRegisterEntry.react');
+var PreRegisterConfirmation = require('./PreRegisterConfirmation.react');
 
 var PreRegisterBox = React.createClass({
   getInitialState() {
