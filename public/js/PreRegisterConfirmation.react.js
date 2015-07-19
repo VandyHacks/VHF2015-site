@@ -52,7 +52,7 @@ var PreRegisterConfirmation = React.createClass({
         <form id="emailChangeForm" className="form-inline text-center" onSubmit={this._onSubmit}>
           <div className="form-group">
             <label className="sr-only" htmlFor="emailField">Email address</label>
-            <input type="email" className="form-control" id="emailField" placeholder="Email" value={email} onChange={this._onChange} />
+            <input type="email" className="form-control" id="emailField" placeholder="Email" value={email} onChange={this._onChange} required />
           </div>
           <button type="submit" className="btn btn-default">Change Email</button>
         </form>

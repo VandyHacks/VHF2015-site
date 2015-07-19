@@ -48,6 +48,7 @@ body {
 }
 
 .intro-row {
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -68,41 +69,11 @@ a.button:hover {
   text-decoration: initial;
 }
 
-#logo {
-  max-height: 350px;
-}
-
-.subtitle {
-  font-size: 3vw;
-}
-
 .top-buffer {
   margin-top: 40px;
 }
 
-.top-buffer-80 {
-  margin-top: 80px;
-}
-
-.top-percent-buffer {
-  margin-top: 10%;
-}
-
-.custom-panel {
-  border-color: rgba(0,0,0,0);
-  background-color: rgba(99, 62, 37, 0.72);
-}
-
-a {
-  color: white;
-}
-
-a:hover {
-  color: rgb(202, 202, 202)
-}
-
 #mlh {
-  background-color: rgba(255,255,255,0.5);
   max-height: 150px;
   max-width: 256px;
 }
