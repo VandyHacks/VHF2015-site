@@ -12,16 +12,45 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="http://www.vandyhacks.org/img/fbphoto.png" />
 
-  <script src="//connect.facebook.net/en_US/all.js"></script>
+  <!--<script src="//connect.facebook.net/en_US/all.js"></script>-->
 
+  <link rel="stylesheet" href="css/font-awesome-4.3.0.css">
   <link rel="stylesheet" href="css/bootstrap-3.3.5.min.css">
+  <link rel="stylesheet" href="css/ptsans-font.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="header-container">
+        <img class="header-img" src="img/bg.png" />
+        <img class="logo" src="img/logo.svg" />
+        <div class="header-txt text-center">
+          <h1>VandyHacks</h1>
+          <h2 class="header-date">October 2-4, 2015 - Nashville, TN</h2>
+        </div>
+        <div class="contact-logo-top-container">
+          <a href="https://www.facebook.com/vandyhacks" target="_fb">
+            <img src="img/facebook.svg" class="contact-logo"/>
+          </a>
+          <a href="https://twitter.com/vandyhacks" target="_tweeter">
+            <img src="img/twitter.svg" class="contact-logo"/>
+          </a>
+          <a href="mailto:info@vandyhacks.org" target="_mail">
+            <img src="img/email.svg" class="contact-logo"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="nav" class="navbar hidden-xs"></div>
+
   <div class="container-fluid main-container">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
+        <a name="about"></a>
         <div class="row intro-row">
           <div class="hidden-xs col-sm-4">
             <div id="image-carousel"></div>
@@ -39,6 +68,7 @@
       </div>
     </div>
 
+    <a name="faq"></a>
     <div class="row faq-section">
       <div class="col-xs-10 col-xs-offset-1">
         <h1 class="header gold text-center">Frequently Asked Questions</h1>
@@ -56,9 +86,10 @@
 
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 text-center">
+        <a name="spnsrs"></a>
         <h1 class="header gold">Sponsors</h1>
         <a href="http://www.digitalreasoning.com/" target="_DR">
-          <img src="img/logos/DR.png" class="logo" />
+          <img src="img/logos/DR.png" class="spnsr-logo" />
         </a>
         <p>Interested in sponsoring? Contact us at <a href="mailto:info@vandyhacks.org" class="gold">info@vandyhacks.org</a>.</p>
       </div>
@@ -67,7 +98,7 @@
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1 text-center">
         <h1 class="header gold">Partners</h1>
-        <img src="img/logos/mlh.svg" class="logo" />
+        <img src="img/logos/mlh.svg" class="spnsr-logo" />
       </div>
     </div>
   </div>
@@ -87,7 +118,7 @@
   </footer>
 
   <!-- Facebook Conversion Code for VandyHacks -->
-  <script>(function() {
+  <!-- <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
   if (!_fbq.loaded) {
   var fbds = document.createElement('script');
@@ -100,7 +131,7 @@
   })();
   window._fbq = window._fbq || [];
   window._fbq.push(['track', '6017825709898', {'value':'0.00','currency':'USD'}]);
-  </script>
+  </script> -->
   <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6017825709898&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 
   <script src="/js/bundle.js"></script>
