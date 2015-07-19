@@ -17,9 +17,14 @@ body {
   margin-bottom: 15px;
 }
 
-img.happy-people {
-  height: 475px;
-  width: 350px;
+#image-carousel {
+  max-width: 300px;
+}
+
+.carousel-inner>.item>img, img.happy-people {
+  width: 100%;
+  max-width: 300px;
+  max-height: 407px;
 }
 
 .footer {

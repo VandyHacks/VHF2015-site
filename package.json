@@ -16,7 +16,8 @@
     "browserify-shim": "~3.8.9",
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "uglifyjs": "~2.4.10"
+    "uglifyjs": "~2.4.10",
+    "react-bootstrap": "~0.23.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
