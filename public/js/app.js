@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var constants = require('./constants');
 var FAQ = require('./FAQ.react');
+var ImageCarousel = require('./ImageCarousel.react');
 var React = require('react');
 var Parse = require('parse').Parse;
 var PreRegisterBox = require('./PreRegisterBox.react');
@@ -19,6 +20,10 @@ Parse.FacebookUtils.init({
   version: 'v2.3' // point to the latest Facebook Graph API version
 });
 
+React.render(
+  <ImageCarousel />,
+  document.getElementById('image-carousel')
+);
 React.render(
   <FAQ questions={constants.FAQ} />,
   document.getElementById('faq')
