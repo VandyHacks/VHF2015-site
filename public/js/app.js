@@ -1,10 +1,11 @@
 var $ = require('jquery');
-var constants = require('./constants');
-var FAQ = require('./FAQ.react');
-var ImageCarousel = require('./ImageCarousel.react');
+var Main = require('./Main.react');
 var React = require('react');
 var Parse = require('parse').Parse;
 var PreRegisterBox = require('./PreRegisterBox.react');
+var Scroll = require('react-scroll');
+
+var {Link} = Scroll;
 
 var LOCALHOST = 'localhost';
 var FB_PROD_ID = 508263295995091;
@@ -21,12 +22,8 @@ var FB_DEV_ID = 524904174331003;
 // });
 
 React.render(
-  <ImageCarousel />,
-  document.getElementById('image-carousel')
-);
-React.render(
-  <FAQ questions={constants.FAQ} />,
-  document.getElementById('faq')
+  <Main />,
+  document.getElementById('main')
 );
 // React.render(
 //   <PreRegisterBox />,
@@ -43,9 +40,15 @@ React.render(
       <img className="navbar-logo navbar-brand" src="../img/logo.svg" height={35} />
     </div>
     <Nav>
-      <NavItem eventKey={1} href='#about'>About</NavItem>
-      <NavItem eventKey={2} href='#faq'>FAQ</NavItem>
-      <NavItem eventKey={2} href='#spnsrs'>Sponsors</NavItem>
+      <li>
+        <Link to="about" spy={true} smooth={true} offset={-50} duration={500} >About</Link>
+      </li>
+      <li>
+        <Link to="faq" spy={true} smooth={true} offset={-50} duration={500} >FAQ</Link>
+      </li>
+      <li>
+        <Link to="spnsrs" spy={true} smooth={true} offset={-50} duration={500} >Sponsors</Link>
+      </li>
     </Nav>
   </Navbar>,
   document.getElementById('nav')
