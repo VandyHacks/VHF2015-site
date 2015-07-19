@@ -1,4 +1,6 @@
 var React = require('react');
+global.jQuery = require('jquery');
+require('bootstrap');
 
 var FAQ = React.createClass({
 
@@ -13,13 +15,25 @@ var FAQ = React.createClass({
     questions.forEach((question, idx) => {
       rows.push(
         <div key={`faq-${idx}`} className="col-xs-12 col-sm-6">
-          <h3 className="faq-question">{question.question}</h3>
-          <p className="faq-answer">{question.answer}</p>
+          <div data-toggle="collapse" data-target={`#faq-${idx}-answer`} className="faq-collapse-header">
+            <h4 className="faq-question">
+              {question.question}
+                <i className="fa fa-angle-down gold faq-arrow hidden-sm hidden-md hidden-lg" ></i>
+            </h4>
+          </div>
+
+          <div className="visible-xs">
+            <p className="faq-answer collapse" id={`faq-${idx}-answer`}>{question.answer}</p>
+          </div>
+
+          <div className="hidden-xs">
+            <p className="faq-answer">{question.answer}</p>
+          </div>
         </div>
       );
       if (idx % 2 === 1) {
         rows.push(
-          <div className="clearfix visible-sm-block visible-md-block visible-lg-block" />
+          <div key={`faq-${idx}-clearfix`} className="clearfix visible-sm-block visible-md-block visible-lg-block" />
         );
       }
     });
