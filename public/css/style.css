@@ -1,9 +1,20 @@
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
 body {
   color: black;
   font-family: 'PT Sans', sans-serif;
+}
+
+.faq-collapse-header {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .faq-collapse-header {
+    cursor: initial;
+  }
 }
 
 .gold {
@@ -24,7 +35,12 @@ body {
 }
 
 .faq-question {
+  display: inline-block;
   color: rgb(234, 168, 57);
+}
+
+.faq-arrow {
+  margin-left: 4px;
 }
 
 .faq-answer {
@@ -37,7 +53,6 @@ body {
 
 a.button {
   text-align: center;
-  width: 85px; /* fixed to largest button size (currently 'Sponsor') */
   display: inline-block;
   color: rgb(234, 168, 57);
   font-size: 16px;
