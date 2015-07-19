@@ -2,18 +2,69 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
+html {
+  position: relative;
+}
+
 body {
   color: black;
   font-family: 'PT Sans', sans-serif;
+  /* Margin bottom by footer height */
+  margin-bottom: 75px;
+}
+
+.main-container {
+  margin-bottom: 15px;
+}
+
+img.happy-people {
+  height: 475px;
+  width: 350px;
+}
+
+.footer {
+  background-color: black;
+  position: absolute;
+  bottom: -15px;
+  width: 100%;
+  height: 75px;
 }
 
 .faq-collapse-header {
   cursor: pointer;
 }
 
+.logo {
+  max-width: 100%;
+}
+
+.contact-logo {
+  width: 35px;
+  margin: 10px;
+}
+
+/* tablet or larger */
 @media (min-width: 768px) {
   .faq-collapse-header {
     cursor: initial;
+  }
+
+  .logo {
+    max-width: 250px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .logo {
+    max-width: 300px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .logo {
+    max-width: 350px;
   }
 }
 
@@ -28,10 +79,6 @@ body {
 
 .faq-section {
   background-color: rgb(33, 33, 35);
-}
-
-.faq-header {
-  color: rgb(234, 168, 57);
 }
 
 .faq-question {
@@ -67,13 +114,4 @@ a.button {
 a.button:hover {
   color: rgb(234, 168, 57);
   text-decoration: initial;
-}
-
-.top-buffer {
-  margin-top: 40px;
-}
-
-#mlh {
-  max-height: 150px;
-  max-width: 256px;
 }
