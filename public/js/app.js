@@ -54,30 +54,26 @@ React.render(
   document.getElementById('nav')
 );
 
-var onscroll = function() {
-  if ($(window).width() > 768) {
-    if ($(window).scrollTop() > $('.navbar').offset().top) {
-      $(".navbar").addClass('fixed');
-      $(".header-container").css('margin-bottom', $('.navbar').outerHeight(true));
-    } else if ($(window).scrollTop() < $(".header-container").outerHeight()) {
-      $(".header-container").css('margin-bottom', 0);
-      $(".navbar").removeClass('fixed');
+$(function() {
+  var MOBILE_WIDTH_CUTOFF = 768;
+  var $window = $(window);
+  var $navbar = $('.navbar');
+  var $headercontainer = $(".header-container");
+
+  var onscroll = function () {
+    if ($window.width() > MOBILE_WIDTH_CUTOFF) {
+      if ($window.scrollTop() > $navbar.offset().top) {
+        $navbar.addClass('fixed');
+        $headercontainer.css('margin-bottom', $navbar.outerHeight(true));
+      } else if ($window.scrollTop() < $headercontainer.outerHeight()) {
+        $headercontainer.css('margin-bottom', 0);
+        $navbar.removeClass('fixed');
+      }
     }
-  }
-};
+  };
 
-$(window).on({
-  'scrollstart': onscroll,
-  'scroll': onscroll,
+  $window.on({
+    'scrollstart': onscroll,
+    'scroll': onscroll,
+  });
 });
-
-
-var widest = null;
-$("*").each(function() {
-  if (widest == null)
-    widest = $(this);
-  else
-  if ($(this).width() > widest.width())
-    widest = $(this);
-});
-console.log(widest)
