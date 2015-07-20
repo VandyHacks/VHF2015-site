@@ -1,3 +1,5 @@
 node_modules/
 config/global.json
 **/bundle.js
+**/bundle.js.map
+**/styles.min.css
