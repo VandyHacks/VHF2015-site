@@ -51,17 +51,18 @@ React.render(
 $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
   var $window = $(window);
-  var $navbar = $('.navbar');
-  var $headercontainer = $(".header-container");
+  var $navbar = $('#nav');
+  var $navbarContainer = $('#nav-container');
+  var $headercontainer = $("#container");
 
   var onscroll = function () {
     if ($window.width() > MOBILE_WIDTH_CUTOFF) {
       if ($window.scrollTop() > $navbar.offset().top) {
-        $navbar.addClass('fixed');
-        $headercontainer.css('margin-bottom', $navbar.outerHeight(true));
+        $navbarContainer.addClass('fixed');
+        $headercontainer.css('margin-bottom', $navbarContainer.outerHeight(true));
       } else if ($window.scrollTop() < $headercontainer.outerHeight()) {
         $headercontainer.css('margin-bottom', 0);
-        $navbar.removeClass('fixed');
+        $navbarContainer.removeClass('fixed');
       }
     }
   };
@@ -70,4 +71,15 @@ $(function() {
     'scrollstart': onscroll,
     'scroll': onscroll,
   });
+
+
+  // scaling constant because the center of mass of the logo is to the left
+  var SCALING_CONST = 0.75980392156863;
+
+  var onresize = function() {
+    $('.logo').css('margin-left', ($('.logo').width() * SCALING_CONST) / -2);
+  };
+
+  $(window).resize(onresize);
+  onresize();
 });
