@@ -182,16 +182,29 @@ body {
   max-width: 100%;
 }
 
-.contact-logo {
-  width: 5%;
-  margin: 2%;
+a.contact-logo {
+  margin: 2vh;
+
+  img {
+    width: 5vh;
+  }
+
+  img.bottom {
+    width: 4vh;
+  }
 }
 
 .contact-logo-top-container {
+  width: 100%;
+  margin: 3vh;
   position: absolute;
   top: 0;
   right: 0;
   text-align: right;
+}
+
+.contact-logo-bottom-container {
+  display: inline;
 }
 
 // may be a cleaner way to do media queries in less, i'm not sure
@@ -203,11 +216,6 @@ body {
 
   .header-txt {
     top: 50%;
-    margin: 10px;
-  }
-
-  .contact-logo {
-    width: 35px;
     margin: 10px;
   }
 
