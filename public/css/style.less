@@ -1,5 +1,8 @@
 @import url('http://fonts.googleapis.com/css?family=Francois+One');
 
+@orange: rgb(234, 168, 57);
+@grey: rgb(33, 33, 35);
+
 html {
   position: relative;
   overflow-x: hidden;
@@ -14,7 +17,7 @@ body {
 
 .orange-bar {
   height: 10px;
-  background-color: rgb(234, 168, 57);
+  background-color: @orange;
 }
 
 .navbar {
@@ -115,7 +118,6 @@ body {
   z-index: 5;
 }
 
-
 .header-cloud-2 {
   position: absolute;
   height: ~"calc(10.4vh + 16px)";
@@ -124,23 +126,29 @@ body {
   z-index: 4;
 }
 
-
 .header-img {
   width: 100%;
+}
+
+.header-title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 48px;
 }
 
 .header-txt {
   position: absolute;
   width: 100%;
-  top: 45%;
+  top: 50%;
   color: white;
+  z-index: 50;
 }
 
 .logo {
   position: absolute;
   top: 20%;
-  left: 45%;
-  width: 10%;
+  height: 30%;
+  z-index: 50;
+  left: 50%;
 }
 
 .header-date {
@@ -159,7 +167,7 @@ body {
 }
 
 .footer {
-  background-color: black;
+  background-color: @grey;
   position: absolute;
   bottom: -15px;
   width: 100%;
@@ -198,12 +206,6 @@ body {
     margin: 10px;
   }
 
-  .logo {
-    top: 15%;
-    left: 43%;
-    width: 17%;
-  }
-
   .contact-logo {
     width: 35px;
     margin: 10px;
@@ -233,7 +235,7 @@ body {
 }
 
 .gold {
-  color: rgb(234, 168, 57);
+  color: @orange;
 }
 
 .header {
@@ -242,12 +244,12 @@ body {
 }
 
 .faq-section {
-  background-color: rgb(33, 33, 35);
+  background-color: @grey;
 }
 
 .faq-question {
   display: inline-block;
-  color: rgb(234, 168, 57);
+  color: @orange;
 }
 
 .faq-arrow {
@@ -266,15 +268,15 @@ body {
 a.button {
   text-align: center;
   display: inline-block;
-  color: rgb(234, 168, 57);
+  color: @orange;
   font-size: 16px;
   padding-bottom: 5px;
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 3px solid rgb(234, 168, 57);
+  border: 3px solid @orange;
   &:hover {
-    color: rgb(234, 168, 57);
+    color: @orange;
     text-decoration: initial;
   }
 }
