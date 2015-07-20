@@ -21,8 +21,9 @@
     "react-scroll": "~0.22.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run watch; npm run server",
     "watch": "watchify -t reactify public/js/app.js -o public/js/bundle.js --verbose",
+    "server": "http-server",
     "prod": "browserify -t reactify public/js/app.js -o public/js/bundle.js --verbose && uglifyjs public/js/bundle.js -o public/js/bundle.js"
   },
   "browserify": {
