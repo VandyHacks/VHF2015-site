@@ -5,6 +5,7 @@ best site ever
 
 1. `npm install` to get all dependencies
 2. `npm run dev` to build JS and start dev server (default port 8080)
+3. `npm run prod` to build JS for production.
 
 # Deps
 
@@ -12,10 +13,4 @@ You'll have to install these manually since some of us don't know how to write a
 
 These all require `node` and `npm`.
 
-1. `browserify`
-2. `less`
-3. `clean-css`
-4. `reactify`
-5. `watchify`
-6. `uglifyjs`
-7. `http-server`
+1. `gulp`
