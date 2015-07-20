@@ -23,6 +23,7 @@ body {
   margin-bottom: 0;
   min-height: 40px;
   background-color: white;
+  border-radius: 0;
 }
 
 .navbar-default .navbar-nav>li>a {
