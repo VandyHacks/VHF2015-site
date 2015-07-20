@@ -155,7 +155,7 @@ h1 {
 
       #title {
         font-family: 'Francois One', sans-serif;
-        font-size: 48px;
+        font-size: 42px;
         text-transform: uppercase;
         margin-bottom: 0px;
       }
@@ -172,7 +172,6 @@ h1 {
   position: absolute;
   top: 20%;
   height: 30%;
-  max-height: 140px;
   z-index: 50;
   left: 50%;
   margin-left: -70px;
@@ -244,6 +243,10 @@ a.contact-logo {
   }
 }
 
+h1 {
+  font-size: 32px
+}
+
 // may be a cleaner way to do media queries in less, i'm not sure
 /* tablet or larger */
 @media (min-width: 768px) {
@@ -251,8 +254,12 @@ a.contact-logo {
     font-size: 18px;
   }
 
-  .header #container #sky {
-    height: ~"calc(100vh - 50px)";
+  h1 {
+    font-size: 36px
+  }
+
+  .header #container #txt #title {
+    font-size: 48px;
   }
 
   .header-txt {
