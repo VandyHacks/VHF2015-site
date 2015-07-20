@@ -15,6 +15,15 @@ body {
   margin-bottom: 75px;
 }
 
+.gold {
+  color: @orange;
+}
+
+.title {
+  font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
+}
+
 .orange-bar {
   height: 10px;
   background-color: @orange;
@@ -57,90 +66,93 @@ body {
   margin-bottom: 15px;
 }
 
-.header-container {
-  position: relative;
-  overflow: hidden;
-}
+.header {
+  #container {
+    position: relative;
+    overflow: hidden;
 
-.header-container .header-sky {
-  background-image: url('/img/bg/sky.png');
-  background-size: auto auto;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
+    #sky {
+      background-image: url('/img/bg/sky.png');
+      background-size: auto auto;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
 
-.header-kirkland {
-  position: absolute;
-  height: ~"calc(65vh + 100px)";
-  right: ~"calc(75vw - 118px)";
-  bottom: ~"calc(8vh + 4.429px)";
-  z-index: 11;
-}
+    #kirkland {
+      position: absolute;
+      height: ~"calc(65vh + 100px)";
+      right: ~"calc(75vw - 118px)";
+      bottom: ~"calc(8vh + 4.429px)";
+      z-index: 11;
+    }
 
-.header-ground {
-  position: absolute;
-  height: ~"calc(13.464vh + 21.714px)";
-  max-width: 100vw;
-  bottom: -10px;
-  z-index: 10;
-}
+    #ground {
+      position: absolute;
+      height: ~"calc(13.464vh + 21.714px)";
+      max-width: 100vw;
+      bottom: -10px;
+      z-index: 10;
+    }
 
-.header-trees {
-  position: absolute;
-  height: ~"calc(24.4vh + 37.57px)";
-  right: ~"calc(18vw - 172px)";
-  bottom: ~"calc(13.464vh + 4.714px)";
-  z-index: 8;
+    #trees {
+      position: absolute;
+      height: ~"calc(24.4vh + 37.57px)";
+      right: ~"calc(18vw - 172px)";
+      bottom: ~"calc(13.464vh + 4.714px)";
+      z-index: 8;
 
-}
+    }
 
-.header-lamp-1 {
-  position: absolute;
-  height: ~"calc(24.4vh + 37.57px)";
-  right: ~"calc(75vw - 260px)";
-  bottom: ~"calc(8vh + 4.429px)";
-  z-index: 12;
-}
+    #lamp-1 {
+      position: absolute;
+      height: ~"calc(24.4vh + 37.57px)";
+      right: ~"calc(75vw - 260px)";
+      bottom: ~"calc(8vh + 4.429px)";
+      z-index: 12;
+    }
 
-.header-lamp-2 {
-  position: absolute;
-  height: ~"calc(24.4vh + 37.57px)";
-  right: ~"calc(55vw - 500px)";
-  bottom: ~"calc(8vh + 4.429px)";
-  z-index: 12;
-}
+    #lamp-2 {
+      position: absolute;
+      height: ~"calc(24.4vh + 37.57px)";
+      right: ~"calc(55vw - 500px)";
+      bottom: ~"calc(8vh + 4.429px)";
+      z-index: 12;
+    }
 
-.header-cloud-1 {
-  position: absolute;
-  height: ~"calc(10.4vh + 16px)";
-  right: ~"calc(12vw + 600px)";
-  bottom: ~"calc(65vh - 80px)";
-  z-index: 5;
-}
+    #cloud-1 {
+      position: absolute;
+      height: ~"calc(10.4vh + 16px)";
+      right: ~"calc(12vw + 600px)";
+      bottom: ~"calc(65vh - 80px)";
+      z-index: 5;
+    }
 
-.header-cloud-2 {
-  position: absolute;
-  height: ~"calc(10.4vh + 16px)";
-  right: ~"calc(12vw + 10px)";
-  bottom: 65vh;
-  z-index: 4;
-}
+    #cloud-2 {
+      position: absolute;
+      height: ~"calc(10.4vh + 16px)";
+      right: ~"calc(12vw + 10px)";
+      bottom: 65vh;
+      z-index: 4;
+    }
 
-.header-img {
-  width: 100%;
-}
+    #txt {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      color: white;
+      z-index: 50;
 
-.header-title {
-  font-family: 'Francois One', sans-serif;
-  font-size: 48px;
-}
+      #title {
+        font-family: 'Francois One', sans-serif;
+        font-size: 48px;
+      }
 
-.header-txt {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  color: white;
-  z-index: 50;
+      #date {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+  }
 }
 
 .logo {
@@ -149,11 +161,6 @@ body {
   height: 30%;
   z-index: 50;
   left: 50%;
-}
-
-.header-date {
-  margin: 0;
-  font-size: 18px;
 }
 
 #image-carousel {
@@ -242,30 +249,21 @@ a.contact-logo {
   }
 }
 
-.gold {
-  color: @orange;
-}
-
-.header {
-  font-family: 'Francois One', sans-serif;
-  text-transform: uppercase;
-}
-
-.faq-section {
+.faq {
   background-color: @grey;
-}
 
-.faq-question {
-  display: inline-block;
-  color: @orange;
-}
+  .question {
+    display: inline-block;
+    color: @orange;
+  }
 
-.faq-arrow {
-  margin-left: 4px;
-}
+  .arrow {
+    margin-left: 4px;
+  }
 
-.faq-answer {
-  color: white;
+  .answer {
+    color: white;
+  }
 }
 
 .intro-row {
