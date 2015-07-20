@@ -27,21 +27,21 @@ var FAQQuestion = React.createClass({
     return (
       <div>
         <div data-toggle="collapse" data-target={`#faq-${index}-answer`} className="faq-collapse-header" onClick={this._onClick}>
-          <h4 className="faq-question">
+          <h4 className="question">
             {question}
             {answerVisible ?
-              <i className="fa fa-angle-right gold faq-arrow hidden-sm hidden-md hidden-lg" ></i> :
-              <i className="fa fa-angle-down gold faq-arrow hidden-sm hidden-md hidden-lg" ></i>
+              <i className="fa fa-angle-right gold arrow hidden-sm hidden-md hidden-lg" ></i> :
+              <i className="fa fa-angle-down gold arrow hidden-sm hidden-md hidden-lg" ></i>
             }
           </h4>
         </div>
 
         <div className="visible-xs">
-          <p className="faq-answer collapse" id={`faq-${index}-answer`}>{answer}</p>
+          <p className="answer collapse" id={`faq-${index}-answer`}>{answer}</p>
         </div>
 
         <div className="hidden-xs">
-          <p className="faq-answer">{answer}</p>
+          <p className="answer">{answer}</p>
         </div>
       </div>
     );
