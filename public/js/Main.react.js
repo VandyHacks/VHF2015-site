@@ -2,6 +2,7 @@ var constants = require('./constants');
 var FAQ = require('./FAQ.react');
 var React = require('react');
 var ImageCarousel = require('./ImageCarousel.react');
+var PreRegisterBox = require('./PreRegisterBox.react');
 
 var Scroll = require('react-scroll');
 
@@ -47,7 +48,7 @@ var Main = React.createClass({
         <div className="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 text-center">
           <a name="apply"></a>
           <h1 className="header gold">Pre-register</h1>
-          <div id="react-hook"></div>
+          <PreRegisterBox />
         </div>
       </div>
 
