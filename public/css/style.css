@@ -53,6 +53,71 @@ body {
   position: relative;
 }
 
+.header-container .header-sky {
+  background-image: url('/img/bg/sky.png');
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  height: calc(100vh - 60px);
+}
+
+.header-kirkland {
+  position: absolute;
+  height: calc(65vh + 100px);
+  right: calc(75vw - 118px);
+  bottom: calc(8vh + 4.429px);
+  z-index: 11;
+}
+
+.header-ground {
+  position: absolute;
+  height: calc(13.464vh + 21.714px);
+  min-width: 100vw;
+  bottom: -10px;
+  z-index: 10;
+}
+
+.header-trees {
+  position: absolute;
+  height: calc(24.4vh + 37.57px);
+  right: calc(18vw - 172px);
+  bottom: calc(13.464vh + 4.714px);
+  z-index: 8;
+}
+
+.header-lamp-1 {
+  position: absolute;
+  height: calc(24.4vh + 37.57px);
+  right: calc(75vw - 260px);
+  bottom: calc(8vh + 4.429px);
+  z-index: 12;
+}
+
+.header-lamp-2 {
+  position: absolute;
+  height: calc(24.4vh + 37.57px);
+  right: calc(55vw - 500px);
+  bottom: calc(8vh + 4.429px);
+  z-index: 12;
+}
+
+.header-cloud-1 {
+  position: absolute;
+  height: calc(10.4vh + 16px);
+  right: calc(12vw + 600px);
+  bottom: calc(65vh - 80px);
+  z-index: 5;
+}
+
+
+.header-cloud-2 {
+  position: absolute;
+  height: calc(10.4vh + 16px);
+  right: calc(12vw + 10px);
+  bottom: 65vh;
+  z-index: 4;
+}
+
+
 .header-img {
   width: 100%;
 }
@@ -68,7 +133,7 @@ body {
   position: absolute;
   top: 20%;
   left: 45%;
-  width: 15%;
+  width: 10%;
 }
 
 .header-date {
