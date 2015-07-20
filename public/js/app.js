@@ -2,7 +2,6 @@ var $ = require('jquery');
 var Main = require('./Main.react');
 var React = require('react');
 var Parse = require('parse').Parse;
-var PreRegisterBox = require('./PreRegisterBox.react');
 var Scroll = require('react-scroll');
 
 var {Link} = Scroll;
@@ -11,28 +10,23 @@ var LOCALHOST = 'localhost';
 var FB_PROD_ID = 508263295995091;
 var FB_DEV_ID = 524904174331003;
 
-// Parse.initialize("DfoMH2OG5zwZ2Fsr0cbcuYkT2NFSrq89zBRIah3H", "UQRnGd3jIMfcg3HLg0sTQhqCdIFcHCx1yPeaE3nP");
-// Parse.FacebookUtils.init({
-//   appId: window.location.host.slice(0, LOCALHOST.length) === LOCALHOST ?
-//     FB_DEV_ID :
-//     FB_PROD_ID,
-//   cookie: true,  // enable cookies to allow Parse to access the session
-//   xfbml: true,  // initialize Facebook social plugins on the page
-//   version: 'v2.3' // point to the latest Facebook Graph API version
-// });
+Parse.initialize("DfoMH2OG5zwZ2Fsr0cbcuYkT2NFSrq89zBRIah3H", "UQRnGd3jIMfcg3HLg0sTQhqCdIFcHCx1yPeaE3nP");
+Parse.FacebookUtils.init({
+  appId: window.location.host.slice(0, LOCALHOST.length) === LOCALHOST ?
+    FB_DEV_ID :
+    FB_PROD_ID,
+  cookie: true,  // enable cookies to allow Parse to access the session
+  xfbml: true,  // initialize Facebook social plugins on the page
+  version: 'v2.3' // point to the latest Facebook Graph API version
+});
 
 React.render(
   <Main />,
   document.getElementById('main')
 );
-// React.render(
-//   <PreRegisterBox />,
-//   document.getElementById('react-hook')
-// );
 
 var Bootstrap = require('react-bootstrap');
 var {Navbar, Nav, NavItem} = Bootstrap;
-
 
 React.render(
   <Navbar>
@@ -57,17 +51,18 @@ React.render(
 $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
   var $window = $(window);
-  var $navbar = $('.navbar');
-  var $headercontainer = $(".header-container");
+  var $navbar = $('#nav');
+  var $navbarContainer = $('#nav-container');
+  var $headercontainer = $("#container");
 
   var onscroll = function () {
     if ($window.width() > MOBILE_WIDTH_CUTOFF) {
       if ($window.scrollTop() > $navbar.offset().top) {
-        $navbar.addClass('fixed');
-        $headercontainer.css('margin-bottom', $navbar.outerHeight(true));
+        $navbarContainer.addClass('fixed');
+        $headercontainer.css('margin-bottom', $navbarContainer.outerHeight(true));
       } else if ($window.scrollTop() < $headercontainer.outerHeight()) {
         $headercontainer.css('margin-bottom', 0);
-        $navbar.removeClass('fixed');
+        $navbarContainer.removeClass('fixed');
       }
     }
   };
@@ -76,4 +71,15 @@ $(function() {
     'scrollstart': onscroll,
     'scroll': onscroll,
   });
+
+
+  // scaling constant because the center of mass of the logo is to the left
+  var SCALING_CONST = 0.75980392156863;
+
+  var onresize = function() {
+    $('.logo').css('margin-left', ($('.logo').width() * SCALING_CONST) / -2);
+  };
+
+  $(window).resize(onresize);
+  onresize();
 });
