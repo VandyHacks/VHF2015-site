@@ -7,13 +7,13 @@ var gulp = require('gulp');
 var source = require('vinyl-source-stream');
 var gutil = require('gulp-util');
 var assign = require('lodash.assign');
-var watchLess = require('gulp-watch-less');
 var less = require('gulp-less');
 var minifyCss = require('gulp-minify-css');
 var merge = require('merge-stream');
 var concat = require('gulp-concat');
 var del = require('del');
 var htmlreplace = require('gulp-html-replace');
+var watch = require('gulp-watch')
 
 var buildJS = function (dev) {
   // add custom browserify options here
@@ -63,9 +63,9 @@ gulp.task('watch-js', function() {
 
 gulp.task('watch-less', function() {
   gulp.src('public/css/style.less')
-      .pipe(watchLess('public/css/style.less'))
+      .pipe(watch('public/css/style.less'))
       .pipe(less())
-      .pipe(gulp.dest('public/css'));
+      .pipe(gulp.dest('public/css'))
 });
 
 gulp.task('dev', ['watch-js', 'watch-less']);
