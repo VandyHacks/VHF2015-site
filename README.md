@@ -10,12 +10,12 @@ best site ever
 
 You'll have to install these manually since some of us don't know how to write a build system. Luckily, you can install them all in one fell swoop with `npm install -g <packages>`.
 
-These all require node and npm.
+These all require `node` and `npm`.
 
-1. browserify
-2. lessc
-3. clean-css
-4. reactify
-5. watchify
-6. uglifyjs
-7. http-server
+1. `browserify`
+2. `less`
+3. `clean-css`
+4. `reactify`
+5. `watchify`
+6. `uglifyjs`
+7. `http-server`
