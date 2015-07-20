@@ -10,6 +10,12 @@ body {
   font-family: 'PT Sans', sans-serif;
   /* Margin bottom by footer height */
   margin-bottom: 75px;
+  font-size: 16px;
+}
+
+.what-is {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .orange-bar {
@@ -19,14 +25,19 @@ body {
 
 .navbar {
   border: 0;
+  border-radius: 0;
   width: 100%;
   margin-bottom: 0;
   min-height: 40px;
   background-color: white;
+  z-index: 25;
 }
 
 .navbar-default .navbar-nav>li>a {
   color: black;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .navbar-brand {
@@ -49,6 +60,10 @@ body {
   margin-bottom: 15px;
 }
 
+.what-is-header {
+  text-align: center;
+}
+
 .header-container {
   position: relative;
 }
@@ -57,7 +72,7 @@ body {
   background-image: url('/img/bg/sky.png');
   background-size: auto auto;
   background-repeat: no-repeat;
-  height: calc(100vh - 60px);
+  height: 100vh;
 }
 
 .header-kirkland {
@@ -117,42 +132,58 @@ body {
   z-index: 4;
 }
 
+.contact-logo-top-container {
+  margin-right: 12px;
+  position: absolute;
+  bottom: 0;
+  right: calc(50vw - 96px);
+  z-index: 22;
+}
 
 .header-img {
   width: 100%;
 }
 
 .header-txt {
-  position: absolute;
   width: 100%;
-  top: 45%;
+  position: absolute;
+  top: calc(20% + 120px);
+  margin: 10px;
+  z-index: 23;
   color: white;
+}
+
+.header-main {
+  margin-bottom: 10px;
 }
 
 .logo {
   position: absolute;
   top: 20%;
-  left: 45%;
-  width: 10%;
+  left: calc(50% - 34px);
+  height: 120px;
+  z-index: 24;
 }
 
 .header-date {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #image-carousel {
   max-width: 300px;
+  margin-right: 50px;
 }
 
 .carousel-inner>.item>img, img.happy-people {
   width: 100%;
+  margin-top: 20px;
   max-width: 300px;
   max-height: 407px;
 }
 
 .footer {
-  background-color: black;
+  background-color: rgb(33, 33, 35);
   position: absolute;
   bottom: -15px;
   width: 100%;
@@ -164,32 +195,43 @@ body {
 }
 
 .spnsr-logo {
-  max-width: 100%;
+  max-width: 288px;
 }
 
 .contact-logo {
-  width: 5%;
-  margin: 2%;
+  width: 36px;
+  margin: 12px;
 }
 
-.contact-logo-top-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
+.faq-question {
+  display: inline-block;
+  font-family: 'Francois One', sans-serif;
+  color: white;
+  padding-top: 8px;
 }
 
 /* tablet or larger */
 @media (min-width: 768px) {
-  .header-txt {
-    top: 50%;
-    margin: 10px;
+  .header-container .header-sky {
+    height: calc(100vh - 60px);
   }
 
-  .logo {
-    top: 15%;
-    left: 43%;
-    width: 17%;
+  .what-is-header {
+    text-align: center;
+  }
+
+  .spnsr-logo {
+    max-width: 350px;
+  }
+
+  .contact-logo-top-container {
+    top: 0;
+    right: 0;
+  }
+
+  .faq-question {
+    color: rgb(234, 168, 57);
+    font-size: 20px;
   }
 
   .contact-logo {
@@ -201,22 +243,12 @@ body {
     cursor: initial;
   }
 
-  .spnsr-logo {
-    max-width: 250px;
+  body {
+    font-size: 17px;
   }
-}
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .spnsr-logo {
-    max-width: 300px;
-  }
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .spnsr-logo {
-    max-width: 350px;
+  h1 {
+    font-size: 44px ;
   }
 }
 
@@ -229,13 +261,15 @@ body {
   text-transform: uppercase;
 }
 
-.faq-section {
-  background-color: rgb(33, 33, 35);
+
+
+h1 {
+  font-family: 'Francois One', sans-serif;
+  text-transform: uppercase;
 }
 
-.faq-question {
-  display: inline-block;
-  color: rgb(234, 168, 57);
+.faq-section {
+  background-color: rgb(33, 33, 35);
 }
 
 .faq-arrow {
@@ -251,16 +285,27 @@ body {
   margin-bottom: 10px;
 }
 
+.info-row {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
 a.button {
   text-align: center;
   display: inline-block;
   color: rgb(234, 168, 57);
-  font-size: 16px;
   padding-bottom: 5px;
   padding-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border: 3px solid rgb(234, 168, 57);
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 18px;
 }
 
 a.button:hover {
