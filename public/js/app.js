@@ -70,4 +70,15 @@ $(function() {
     'scrollstart': onscroll,
     'scroll': onscroll,
   });
+
+
+  // scaling constant because the center of mass of the logo is to the left
+  var SCALING_CONST = 0.75980392156863;
+
+  var onresize = function() {
+    $('.logo').css('margin-left', ($('.logo').width() * SCALING_CONST) / -2);
+  };
+
+  $(window).resize(onresize);
+  onresize();
 });
