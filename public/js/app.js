@@ -52,16 +52,17 @@ $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
   var $window = $(window);
   var $navbar = $('#nav');
+  var $navbarContainer = $('#nav-container');
   var $headercontainer = $("#container");
 
   var onscroll = function () {
     if ($window.width() > MOBILE_WIDTH_CUTOFF) {
       if ($window.scrollTop() > $navbar.offset().top) {
-        $navbar.addClass('fixed');
-        $headercontainer.css('margin-bottom', $navbar.outerHeight(true));
+        $navbarContainer.addClass('fixed');
+        $headercontainer.css('margin-bottom', $navbarContainer.outerHeight(true));
       } else if ($window.scrollTop() < $headercontainer.outerHeight()) {
         $headercontainer.css('margin-bottom', 0);
-        $navbar.removeClass('fixed');
+        $navbarContainer.removeClass('fixed');
       }
     }
   };
