@@ -23,8 +23,10 @@
     "watchify": "~3.2.3"
   },
   "scripts": {
+    "dev": "npm run watch; npm run server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "watchify -t reactify public/js/app.js -o public/js/bundle.js --verbose & node watch-less.js public/css/style.less",
+    "server": "http-server",
     "prod": "browserify -t reactify public/js/app.js -o public/js/bundle.js --verbose && uglifyjs public/js/bundle.js -o public/js/bundle.js && lessc public/css/style.less | cleancss -o public/css/style.css"
   },
   "browserify": {
