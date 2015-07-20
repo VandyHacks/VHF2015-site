@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Francois+One);
+@import url('http://fonts.googleapis.com/css?family=Francois+One');
 
 html {
   position: relative;
@@ -27,6 +27,10 @@ body {
 
 .navbar-default .navbar-nav>li>a {
   color: black;
+}
+
+.fixed-navbar-header-container {
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -114,6 +118,7 @@ body {
   text-align: right;
 }
 
+// may be a cleaner way to do media queries in less, i'm not sure
 /* tablet or larger */
 @media (min-width: 768px) {
   .header-txt {
@@ -196,9 +201,8 @@ a.button {
   padding-left: 10px;
   padding-right: 10px;
   border: 3px solid rgb(234, 168, 57);
-}
-
-a.button:hover {
-  color: rgb(234, 168, 57);
-  text-decoration: initial;
+  &:hover {
+    color: rgb(234, 168, 57);
+    text-decoration: initial;
+  }
 }
