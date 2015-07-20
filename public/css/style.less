@@ -43,6 +43,10 @@ body {
   color: black;
 }
 
+.navbar-nav>li:hover {
+  cursor: pointer;
+}
+
 .fixed-navbar-header-container {
   margin-bottom: 0;
 }
@@ -169,12 +173,6 @@ body {
   max-width: 300px;
 }
 
-.carousel-inner>.item>img, img.happy-people {
-  width: 100%;
-  max-width: 300px;
-  max-height: 407px;
-}
-
 .footer {
   background-color: @grey;
   position: absolute;
@@ -274,6 +272,12 @@ a.contact-logo {
 }
 
 a.button {
+  -o-transition:  background-color .5s ease-in-out, color .5s ease-in-out;
+  -ms-transition:  background-color .5s ease-in-out, color .5s ease-in-out;
+  -moz-transition:  background-color .5s ease-in-out, color .5s ease-in-out;
+  -webkit-transition: background-color .5s ease-in-out, color .5s ease-in-out;
+  transition:  background-color .5s ease-in-out, color .5s ease-in-out;
+
   width: 83px;
   margin: 2px;
   text-align: center;
@@ -286,7 +290,13 @@ a.button {
   padding-right: 10px;
   border: 3px solid @orange;
   &:hover {
-    color: @orange;
     text-decoration: initial;
+    color: white;
+    background-color: @orange;
+  }
+
+  &:focus {
+    text-decoration: initial;
+    outline: 0;
   }
 }
