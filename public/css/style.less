@@ -9,8 +9,13 @@ html {
 body {
   color: black;
   font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
   /* Margin bottom by footer height */
   margin-bottom: 75px;
+}
+
+h1 {
+  margin-bottom: 30px;
 }
 
 .gold {
@@ -23,7 +28,7 @@ body {
 }
 
 .orange-bar {
-  height: 10px;
+  height: 6px;
   background-color: @orange;
 }
 
@@ -41,6 +46,7 @@ body {
 
 .navbar-default .navbar-nav>li>a {
   color: black;
+  cursor: pointer;
 }
 
 .fixed-navbar-header-container {
@@ -73,7 +79,7 @@ body {
     overflow: hidden;
 
     #sky {
-      background-image: url('/img/bg/sky.png');
+      background-image: url('/img/bg/sky.jpg');
       background-size: auto auto;
       background-repeat: no-repeat;
       height: 100vh;
@@ -146,6 +152,8 @@ body {
       #title {
         font-family: 'Francois One', sans-serif;
         font-size: 48px;
+        text-transform: uppercase;
+        margin-bottom: 0px;
       }
 
       #date {
@@ -160,6 +168,7 @@ body {
   position: absolute;
   top: 20%;
   height: 30%;
+  max-height: 140px;
   z-index: 50;
   left: 50%;
   margin-left: -70px;
@@ -188,18 +197,20 @@ body {
 }
 
 .spnsr-logo {
-  max-width: 100%;
+  max-width: 288px;
 }
 
 a.contact-logo {
   margin: 2vh;
 
   img {
-    width: 5vh;
+    height: 5vh;
+    min-width: 30px;
   }
 
   img.bottom {
-    width: 4vh;
+    height: 4vh;
+    min-width: 30px;
   }
 }
 
@@ -216,47 +227,14 @@ a.contact-logo {
   display: inline;
 }
 
-// may be a cleaner way to do media queries in less, i'm not sure
-/* tablet or larger */
-@media (min-width: 768px) {
-  .header-container .header-sky {
-    height: ~"calc(100vh - 60px)";
-  }
-
-  .header-txt {
-    top: 50%;
-    margin: 10px;
-  }
-
-  .faq-collapse-header {
-    cursor: initial;
-  }
-
-  .spnsr-logo {
-    max-width: 250px;
-  }
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .spnsr-logo {
-    max-width: 300px;
-  }
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .spnsr-logo {
-    max-width: 350px;
-  }
-}
-
 .faq {
   background-color: @grey;
 
   .question {
+    font-family: 'Francois One', sans-serif;
+    font-size: 20px;
     display: inline-block;
-    color: @orange;
+    color: white;
   }
 
   .arrow {
@@ -268,14 +246,54 @@ a.contact-logo {
   }
 }
 
+// may be a cleaner way to do media queries in less, i'm not sure
+/* tablet or larger */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .header #container #sky {
+    height: ~"calc(100vh - 50px)";
+  }
+
+  .header-txt {
+    top: 50%;
+    margin: 10px;
+  }
+
+  .faq .question {
+    color: rgb(234, 168, 57);
+    font-size: 22px;
+  }
+
+  .faq-collapse-header {
+    cursor: initial;
+  }
+
+  .spnsr-logo {
+    max-width: 350px;
+  }
+
+  .what-if-row {
+    margin-top: -56px;
+  }
+}
+
 .intro-row {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
+.info-row {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
 a.button {
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-top: 30px;
   text-align: center;
   display: inline-block;
   color: @orange;
