@@ -51,7 +51,7 @@ React.render(
 $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
   var $window = $(window);
-  var $navbar = $('.navbar');
+  var $navbar = $('#nav');
   var $headercontainer = $(".header-container");
 
   var onscroll = function () {
