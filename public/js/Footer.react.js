@@ -1,7 +1,4 @@
 var React = require('react');
-var Scroll = require('react-scroll');
-
-var {Link} = Scroll;
 
 var Footer = React.createClass({
 

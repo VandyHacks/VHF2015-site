@@ -1,10 +1,12 @@
 var $ = require('jquery');
+var Bootstrap = require('react-bootstrap');
 var Footer = require('./Footer.react');
 var Main = require('./Main.react');
 var React = require('react');
 var Parse = require('parse').Parse;
 var Scroll = require('react-scroll');
 
+var {Navbar, Nav, NavItem} = Bootstrap;
 var {Element, Link} = Scroll;
 
 var LOCALHOST = 'localhost';
@@ -27,9 +29,6 @@ React.render(
   <Main />,
   document.getElementById('main')
 );
-
-var Bootstrap = require('react-bootstrap');
-var {Navbar, Nav, NavItem} = Bootstrap;
 
 React.render(
   <Navbar>
@@ -66,8 +65,10 @@ React.render(
 React.render(
   <Footer />,
   document.getElementById('footer')
-)
+);
 
+
+/** jQuery Haxx0rs! **/
 $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
   var $window = $(window);
@@ -86,7 +87,6 @@ $(function() {
       }
     }
   };
-
   $window.on({
     'scrollstart': onscroll,
     'scroll': onscroll,
