@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var Footer = require('./Footer.react');
 var Main = require('./Main.react');
 var React = require('react');
 var Parse = require('parse').Parse;
@@ -59,6 +60,11 @@ React.render(
   <Element name="top" className="element" />,
   document.getElementById('top')
 );
+
+React.render(
+  <Footer />,
+  document.getElementById('footer')
+)
 
 $(function() {
   var MOBILE_WIDTH_CUTOFF = 768;
