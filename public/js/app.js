@@ -39,18 +39,18 @@ React.render(
     </div>
     <Nav>
       <li>
-        <Link to="about" spy={true} smooth={true} offset={-50} duration={500} >About</Link>
+        <Link className="hoverable" to="about" spy={true} smooth={true} offset={-50} duration={500} >About</Link>
       </li>
       <li>
-        <Link to="faq" spy={true} smooth={true} offset={-50} duration={500} >FAQ</Link>
+        <Link className="hoverable" to="faq" spy={true} smooth={true} offset={-50} duration={500} >FAQ</Link>
       </li>
       <li>
-        <Link to="spnsrs" spy={true} smooth={true} offset={-50} duration={500} >Sponsors</Link>
+        <Link className="hoverable" to="spnsrs" spy={true} smooth={true} offset={-50} duration={500} >Sponsors</Link>
       </li>
     </Nav>
     <Nav right>
       <li>
-        <Link to="apply" spy={true} smooth={true} offset={-50} duration={500} >Apply</Link>
+        <Link className="hoverable" to="apply" spy={true} smooth={true} offset={-50} duration={500} >Apply</Link>
       </li>
     </Nav>
   </Navbar>,
