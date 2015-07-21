@@ -315,13 +315,26 @@ h1 {
   margin-top: 26px;
 }
 
-a.button {
+.nav>li>a.hoverable {
   -o-transition:  background-color .25s ease-in-out, color .25s ease-in-out;
   -ms-transition:  background-color .25s ease-in-out, color .25s ease-in-out;
   -moz-transition:  background-color .25s ease-in-out, color .25s ease-in-out;
   -webkit-transition: background-color .25s ease-in-out, color .25s ease-in-out;
   transition:  background-color .25s ease-in-out, color .25s ease-in-out;
 
+  &:hover {
+    text-decoration: initial;
+    color: white;
+    background-color: @orange;
+  }
+
+  &:focus {
+    text-decoration: initial;
+    outline: 0;
+  }
+}
+
+a.button {
   width: 83px;
   margin: 4px;
   text-align: center;
