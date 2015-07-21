@@ -21,6 +21,8 @@ Parse.FacebookUtils.init({
   version: 'v2.3' // point to the latest Facebook Graph API version
 });
 
+React.initializeTouchEvents(true);
+
 React.render(
   <Main />,
   document.getElementById('main')
