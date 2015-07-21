@@ -13,7 +13,7 @@ var merge = require('merge-stream');
 var concat = require('gulp-concat');
 var del = require('del');
 var htmlreplace = require('gulp-html-replace');
-var watch = require('gulp-watch')
+var watch = require('gulp-watch');
 
 var buildJS = function (dev) {
   // add custom browserify options here
@@ -65,7 +65,7 @@ gulp.task('watch-less', function() {
   gulp.src('public/css/style.less')
       .pipe(watch('public/css/style.less'))
       .pipe(less())
-      .pipe(gulp.dest('public/css'))
+      .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('dev', ['watch-js', 'watch-less']);
@@ -88,20 +88,30 @@ gulp.task('js', function() {
 });
 
 gulp.task('less', function() {
-  del([
-    'public/css/style.css',
-  ], function() {
-    var compiledCSS = gulp.src('public/css/style.less')
+  gulp.src('public/css/style.less')
       .pipe(less())
-      .pipe(minifyCss());
+      .pipe(gulp.dest('public/css'));
+});
 
-    var libCSS = gulp.src(['public/css/*.css']);
+gulp.task('concat', function() {
+  del([
+    'public/css/styles.min.css'
+  ], function() {
+    var css = gulp.src(
+      [
+        'public/css/font-awesome-4.3.0.css',
+        'public/css/bootstrap-3.3.5.min.css',
+        'public/css/ptsans-font.css',
+        'public/css/francois-font.css',
+        'public/css/style.css',
+      ]
+    );
 
-    merge(compiledCSS, libCSS)
+    css
       .pipe(minifyCss())
       .pipe(concat("styles.min.css"))
       .pipe(gulp.dest('public/css'));
   });
 });
 
-gulp.task('prod', ['html', 'js', 'less']);
+gulp.task('prod', ['html', 'js', 'less', 'concat']);
