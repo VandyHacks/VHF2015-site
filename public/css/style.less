@@ -15,6 +15,7 @@ body {
 }
 
 h1 {
+  font-size: 44px;
   margin-bottom: 30px;
 }
 
@@ -27,7 +28,7 @@ h1 {
 }
 
 .title {
-  font-family: 'Francois One', sans-serif;
+  font-family: 'League Gothic', sans-serif;
   text-transform: uppercase;
 }
 
@@ -158,8 +159,8 @@ h1 {
       z-index: 50;
 
       #title {
-        font-family: 'Francois One', sans-serif;
-        font-size: 42px;
+        font-family: 'League Gothic', sans-serif;
+        font-size: 60px;
         text-transform: uppercase;
         margin-bottom: 0px;
       }
@@ -236,8 +237,8 @@ a.contact-logo {
   background-color: @grey;
 
   .question {
-    font-family: 'Francois One', sans-serif;
-    font-size: 20px;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 26px;
     display: inline-block;
     color: white;
   }
@@ -251,23 +252,11 @@ a.contact-logo {
   }
 }
 
-h1 {
-  font-size: 32px
-}
-
 // may be a cleaner way to do media queries in less, i'm not sure
 /* tablet or larger */
 @media (min-width: 768px) {
   body {
     font-size: 18px;
-  }
-
-  h1 {
-    font-size: 36px
-  }
-
-  .header #container #txt #title {
-    font-size: 48px;
   }
 
   .header-txt {
@@ -276,8 +265,7 @@ h1 {
   }
 
   .faq .question {
-    color: rgb(234, 168, 57);
-    font-size: 22px;
+    color: @orange;
   }
 
   .faq-collapse-header {
@@ -290,6 +278,14 @@ h1 {
 
   .what-if-row {
     margin-top: -56px;
+  }
+
+  .header #container #sky {
+    height: ~"calc(100vh - 50px)";
+  }
+
+  h1 {
+    font-size: 50px;
   }
 }
 
