@@ -4,7 +4,7 @@ var React = require('react');
 var Parse = require('parse').Parse;
 var Scroll = require('react-scroll');
 
-var {Link} = Scroll;
+var {Element, Link} = Scroll;
 
 var LOCALHOST = 'localhost';
 var FB_PROD_ID = 508263295995091;
@@ -31,7 +31,9 @@ var {Navbar, Nav, NavItem} = Bootstrap;
 React.render(
   <Navbar>
     <div className="navbar-header">
-      <img className="navbar-logo navbar-brand" src="../img/logo.svg" height={35} />
+      <Link to="top" spy={true} smooth={true} offset={0} duration={500}>
+        <img className="navbar-logo navbar-brand" src="../img/logo.svg" height={35} />
+      </Link>
     </div>
     <Nav>
       <li>
@@ -44,8 +46,18 @@ React.render(
         <Link to="spnsrs" spy={true} smooth={true} offset={-50} duration={500} >Sponsors</Link>
       </li>
     </Nav>
+    <Nav right>
+      <li>
+        <Link to="apply" spy={true} smooth={true} offset={-50} duration={500} >Apply</Link>
+      </li>
+    </Nav>
   </Navbar>,
   document.getElementById('nav')
+);
+
+React.render(
+  <Element name="top" className="element" />,
+  document.getElementById('top')
 );
 
 $(function() {
