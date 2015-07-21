@@ -74,7 +74,7 @@ gulp.task('dev', ['watch-js', 'watch-less']);
 gulp.task('html', function() {
   gulp.src('public/index.html')
     .pipe(htmlreplace({
-      'css': 'css/styles.min.css',
+      'css': 'css/styles.min.css'
     }))
     .pipe(gulp.dest('public/'));
 });
