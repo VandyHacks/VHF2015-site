@@ -66,7 +66,15 @@ var Main = React.createClass({
       <div className="row info-row">
         <div className="col-xs-10 col-xs-offset-1 text-center">
           <h1 className="title gold">Partners</h1>
-          <img src="img/logos/mlh.svg" className="spnsr-logo" />
+          <a href="https://mlh.io/" target="_partner">
+            <img src="img/logos/mlh.svg" className="spnsr-logo" />
+          </a>
+          <a href="http://challengepost.com/" target="_partner">
+            <img src="img/logos/challengepost.png" className="spnsr-logo" />
+          </a>
+          <a href="https://www.thalmic.com/myo/" target="_partner">
+            <img src="img/logos/myo.png" className="spnsr-logo" />
+          </a>
         </div>
       </div>
     </div>
