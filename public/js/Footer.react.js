@@ -8,9 +8,9 @@ var Footer = React.createClass({
   render() {
     return (
       <div className="container-fluid contact-logo-bottom-container">
-        <Link to="top" spy={true} smooth={true} offset={0} duration={500}>
+        <a href="#top">
           <i className="up fa fa-angle-up gold arrow hidden-sm hidden-md hidden-lg"></i>
-        </Link>
+        </a>
         <a href="https://www.facebook.com/vandyhacks" target="_fb" className="contact-logo">
           <img src="img/facebook.svg" className="bottom"/>
         </a>
