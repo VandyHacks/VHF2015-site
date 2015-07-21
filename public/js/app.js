@@ -97,7 +97,9 @@ $(function() {
   var SCALING_CONST = 0.75980392156863;
 
   var onresize = function() {
-    $('.logo').css('margin-left', ($('.logo').width() * SCALING_CONST) / -2);
+    var width = $('.header').height() * 0.3 * 0.9494595384165937;
+
+    $('.logo').css('margin-left', (width * SCALING_CONST) / -2);
   };
 
   $(window).resize(onresize);
