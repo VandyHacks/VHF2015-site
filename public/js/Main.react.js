@@ -58,6 +58,9 @@ var Main = React.createClass({
             <a href="http://www.digitalreasoning.com/" target="_DR">
               <img src="img/logos/DR.png" className="spnsr-logo" />
             </a>
+            <a href="http://www.att.com/" target="_att">
+              <img src="img/logos/att.jpg" className="spnsr-logo" />
+            </a>
             <p>Interested in sponsoring? Contact us at <a href="mailto:info@vandyhacks.org" className="gold">info@vandyhacks.org</a>.</p>
           </div>
         </div>
