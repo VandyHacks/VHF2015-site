@@ -78,6 +78,9 @@ var Main = React.createClass({
           <a href="https://www.thalmic.com/myo/" target="_partner">
             <img src="img/logos/myo.png" className="spnsr-logo" />
           </a>
+          <a href="https://www.oculus.com" target="_partner">
+            <img src="img/logos/oculus.png" className="spnsr-logo" />
+          </a>
         </div>
       </div>
     </div>
