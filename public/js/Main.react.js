@@ -55,11 +55,14 @@ var Main = React.createClass({
         <div className="row info-row">
           <div className="col-xs-10 col-xs-offset-1 text-center">
             <h1 className="title gold">Sponsors</h1>
+            <a href="http://www.att.com/" target="_att">
+              <img src="img/logos/att.jpg" className="spnsr-logo" />
+            </a>
             <a href="http://www.digitalreasoning.com/" target="_DR">
               <img src="img/logos/DR.png" className="spnsr-logo" />
             </a>
-            <a href="http://www.att.com/" target="_att">
-              <img src="img/logos/att.jpg" className="spnsr-logo" />
+            <a href="http://www.digitalocean.com/" target="_do">
+              <img src="img/logos/DO.svg" className="spnsr-logo" />
             </a>
             <p>Interested in sponsoring? Contact us at <a href="mailto:info@vandyhacks.org" className="gold">info@vandyhacks.org</a>.</p>
           </div>
