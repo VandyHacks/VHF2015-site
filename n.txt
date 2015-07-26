@@ -2,18 +2,16 @@ Hackathon
   Name
   Date
 
-Hacker
+Hacker (User)
   HackerID
   FirstName
   LastName
   Gender
-  Age
   ShirtSize
   School
   Email
   GraduatingYear
-  FirstHackathon?
-  OtherHackathons?
+    FirstHackathon?
   Major
   Github
   LinkedIn
@@ -26,4 +24,10 @@ Application
   HackathonID
   WhyVH?
   TravelReimbursement?
-  TravelFromSchool?
+
+
+Hackathon -> Hacker (one to many)
+
+Hacker -> Application (one to one)
+
+Hackathon -> Application (one to many)

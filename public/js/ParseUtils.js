@@ -7,6 +7,8 @@ function onError(obj, err) {
   if (err === undefined) {
     err = obj;
   }
+  console.log("Parse Error:");
+  console.log(err);
 
   switch (err.code) {
     case Parse.Error.INVALID_SESSION_TOKEN:

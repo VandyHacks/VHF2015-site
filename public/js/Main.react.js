@@ -2,7 +2,7 @@ var constants = require('./constants');
 var FAQ = require('./FAQ.react');
 var React = require('react');
 var ImageCarousel = require('./ImageCarousel.react');
-var PreRegisterBox = require('./PreRegisterBox.react');
+var Registration = require('./Registration.react');
 
 var Scroll = require('react-scroll');
 
@@ -44,9 +44,9 @@ var Main = React.createClass({
 
       <Element name="apply" className="element">
         <div className="row info-row">
-          <div className="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 text-center">
-            <h1 className="title gold">Pre-register</h1>
-            <PreRegisterBox />
+          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 text-center">
+            <h1 className="title gold">Register</h1>
+            <Registration />
           </div>
         </div>
       </Element>
