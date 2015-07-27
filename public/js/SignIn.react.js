@@ -18,9 +18,6 @@ var SignIn = React.createClass({
       return;
     }
 
-    // set default props
-    Parse.User.current().set('firstHackathon', false);
-
     FB.api(
       "/" + user.attributes.authData.facebook.id,
       function (response) {
@@ -37,10 +34,6 @@ var SignIn = React.createClass({
           // TODO: Properly handle this error
           console.log('FB auth error: ');
           console.log(response);
-
-          // at least save the default props on an error
-          Parse.User.current().save()
-            .then(function(){}, ParseUtils.onError);
         }
       }.bind(this)
     );

@@ -93,7 +93,15 @@ class ApplicationUtils {
     if (this.validate()) {
       // TODO: all props are valid, send to server, update UI with good-alert
       this.ctx.state.application.save()
-        .then(function() {}, ParseUtils.onError);
+        .then(function() {
+          $('html, body')
+            .animate(
+              {
+                scrollTop: $(React.findDOMNode(this.ctx.refs.status)).offset().top - offset - 250
+              },
+              delay
+            );
+        }.bind(this), ParseUtils.onError);
     }
   }
 }
@@ -117,8 +125,7 @@ class UserUtils {
   save() {
     if (this.validate()) {
       // TODO: all props are valid, send to server, update UI with good-alert
-      this.ctx.state.user.save()
-        .then(function() {}, ParseUtils.onError);
+      return this.ctx.state.user.save();
     } else {
       // normal HTML5 'required' will be scrolled to, but not these weird Select boxes
       if (!this.ctx.state.user.get('school')) {
@@ -138,6 +145,7 @@ class UserUtils {
             delay
           );
       }
+      return null;
     }
   }
 
@@ -209,7 +217,10 @@ var Registration = React.createClass({
         (file) => {
           // attach File to user, then save
           this.state.user.set('resume', file);
-          this.state.UserUtils.save();
+          var promise = this.state.UserUtils.save();
+          if (promise) {
+            save.then(() => this.state.ApplicationUtils.save(), ParseUtils.onError);
+          }
 
           this.setState({ // TODO: iffy
             uploadAgain: false,
@@ -219,19 +230,11 @@ var Registration = React.createClass({
       );
     } else {
       // Save the User
-      this.state.UserUtils.save();
+      var promise = this.state.UserUtils.save();
+      if (promise) {
+        promise.then(() => this.state.ApplicationUtils.save(), ParseUtils.onError);
+      }
     }
-
-    // Save the Application
-    this.state.ApplicationUtils.save();
-
-    $('html, body')
-      .animate(
-        {
-          scrollTop: $(React.findDOMNode(this.refs.status)).offset().top - offset - 250
-        },
-        delay
-      );
   },
 
   _appStatus() {
@@ -420,21 +423,36 @@ var Registration = React.createClass({
           </select>
         </div>
         <div className="form-group">
-            <div className="checkbox">
-              <label className="required" htmlFor="firstHackathon">
-                <input
-                  type="checkbox"
-                  id="firstHackathon"
-                  checked={user.get('firstHackathon')}
-                  onChange={
-                    (e) => {
-                      var oldVal = user.get('firstHackathon');
-                      this.state.UserUtils.updateField('firstHackathon', {target:{value: !oldVal}});
-                    }
-                  } />
-                  Is this your first hackathon?*
-              </label>
-            </div>
+          <label className="required">Is this your first hackathon?*</label>
+          <div>
+            <label className="radio-inline">
+              <input
+                type="radio"
+                name="firstHackathon"
+                id="firstHackathon1"
+                required="required"
+                checked={user.get('firstHackathon') === true}
+                onChange={
+                  (e) => {
+                    var val = e.target.checked;
+                    this.state.UserUtils.updateField('firstHackathon', {target:{value: val}});
+                  }
+                } /> Yes
+            </label>
+            <label className="radio-inline">
+              <input type="radio"
+                name="firstHackathon"
+                id="firstHackathon2"
+                required="required"
+                checked={user.get('firstHackathon') === false}
+                onChange={
+                  (e) => {
+                    var val = e.target.checked;
+                    this.state.UserUtils.updateField('firstHackathon', {target:{value: !val}});
+                  }
+                } /> No
+            </label>
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="github">Github/LinkedIn</label>
@@ -474,7 +492,7 @@ var Registration = React.createClass({
             </div> :
             <input type="file" id="resume" ref="resume" />
           }
-          <p className="help-block">Some of our sponsors get this, so make sure it's polished!</p>
+          <p className="help-block">Many of our sponsors will be reviewing this, so make sure it's polished!</p>
         </div>
         <div className="form-group">
           <label>Food Restrictions</label>
@@ -482,7 +500,7 @@ var Registration = React.createClass({
             className="form-control input-lg"
             value={user.get('foodRestrictions')}
             onChange={this.state.UserUtils.updateField.bind(this.state.UserUtils, 'foodRestrictions')} >
-            <option value="">Please select an option</option>
+            <option value="none">None</option>
             <option value="vegetarian">Vegetarian</option>
             <option value="vegan">Vegan</option>
             <option value="other">Other (specify in special needs)</option>
@@ -509,6 +527,7 @@ var Registration = React.createClass({
           <label htmlFor="specialneeds">Special Needs</label>
           <textarea
             className="form-control"
+            placeholder="You can leave this blank unless we need to know more information about you!"
             rows="2"
             id="specialneeds"
             value={user.get('specialNeeds')}
