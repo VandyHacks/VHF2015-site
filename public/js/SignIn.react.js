@@ -5,34 +5,44 @@ var ParseUtils = require('./ParseUtils');
 
 var SignIn = React.createClass({
 
+  propTypes: {
+    onLogin: React.PropTypes.func.isRequired,
+  },
+
   _onSuccessfulSubmit(user) {
     var self = this;
     var {email, firstName, lastName, gender} = user.attributes;
 
     if (email && firstName && lastName && gender) {
+      this.props.onLogin();
       return;
     }
+
+    // set default props
+    Parse.User.current().set('firstHackathon', false);
 
     FB.api(
       "/" + user.attributes.authData.facebook.id,
       function (response) {
         if (response && !response.error) {
-          ParseReact.Mutation.Set(
-            ParseReact.currentUser,
-            {
-              'email': response.email,
-              'firstName': response.first_name,
-              'lastName': response.last_name,
-              'gender': response.gender,
-            }
-          ).dispatch()
-          .then(function(){}, ParseUtils.onError);
+          Parse.User.current().set('email', response.email);
+          Parse.User.current().set('firstName', response.first_name);
+          Parse.User.current().set('lastName', response.last_name);
+          Parse.User.current().set('gender', response.gender);
+
+          Parse.User.current().save()
+            .then(function(){}, ParseUtils.onError);
+          this.props.onLogin();
         } else {
           // TODO: Properly handle this error
           console.log('FB auth error: ');
           console.log(response);
+
+          // at least save the default props on an error
+          Parse.User.current().save()
+            .then(function(){}, ParseUtils.onError);
         }
-      }
+      }.bind(this)
     );
   },
 
@@ -48,7 +58,7 @@ var SignIn = React.createClass({
   render() {
     return (
       <div className="text-center">
-        <span>Sign in below, and we'll let you know when registration opens!</span>
+        <span>Sign in below to register!</span>
         <a href="#" onClick={this._onSubmit}>
           <img src="/sign-in.png" className="img-responsive" />
         </a>
