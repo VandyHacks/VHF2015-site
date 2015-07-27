@@ -21,7 +21,11 @@ var Main = React.createClass({
           </div>
           <div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6">
             <h1 className="title gold text-center">What is <span className="gold">VandyHacks</span>?</h1>
-            <p>VandyHacks is the premiere university hackathon in Nashville, TN, featuring <span className="gold">250+ students</span>. Join us on <span className="gold">October 2-4, 2015</span> at <span className="gold">Vanderbilt University</span>.</p>
+            <p>
+              Founded in the spring of 2015, VandyHacks was the first collegiate hackathon to call the rockin' city of <span className="gold">Nashville, Tennessee</span> home.
+              Now, we're proud to bring you VandyHacks II- and it's gonna be even bigger and better. From October 2-4, <span className="gold">250+ students</span> from universities all over the nation will meet at <span className="gold">Vanderbilt University</span> for a weekend of collaboration, innovation, and great food (<span className="gold">#southernhospitality</span>).
+              We hope to see y'all there!
+            </p>
             <div className="text-center action-buttons">
               <Link to="apply" spy={true} smooth={true} offset={-50} duration={500} >
                 <a className="button" href="#apply">Apply</a>

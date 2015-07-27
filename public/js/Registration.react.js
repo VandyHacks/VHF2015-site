@@ -455,6 +455,23 @@ var Registration = React.createClass({
           </div>
         </div>
         <div className="form-group">
+            <div className="checkbox">
+              <label className="required" htmlFor="needsTravelReimbursement">
+                <input
+                  type="checkbox"
+                  id="needsTravelReimbursement"
+                  checked={application.get('needsTravelReimbursement')}
+                  onChange={
+                    (e) => {
+                      var oldVal = application.get('needsTravelReimbursement');
+                      this.state.ApplicationUtils.updateField('needsTravelReimbursement', {target:{value: !oldVal}});
+                    }
+                  } />
+                Do you need travel reimbursement?*
+              </label>
+            </div>
+        </div>
+        <div className="form-group">
           <label htmlFor="github">Github/LinkedIn</label>
           <input
             id="github"
@@ -505,23 +522,6 @@ var Registration = React.createClass({
             <option value="vegan">Vegan</option>
             <option value="other">Other (specify in special needs)</option>
           </select>
-        </div>
-        <div className="form-group">
-            <div className="checkbox">
-              <label className="required" htmlFor="needsTravelReimbursement">
-                <input
-                  type="checkbox"
-                  id="needsTravelReimbursement"
-                  checked={application.get('needsTravelReimbursement')}
-                  onChange={
-                    (e) => {
-                      var oldVal = application.get('needsTravelReimbursement');
-                      this.state.ApplicationUtils.updateField('needsTravelReimbursement', {target:{value: !oldVal}});
-                    }
-                  } />
-                Do you need travel reimbursement?*
-              </label>
-            </div>
         </div>
         <div className="form-group">
           <label htmlFor="specialneeds">Special Needs</label>

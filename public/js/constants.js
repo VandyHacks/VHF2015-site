@@ -2,7 +2,7 @@ module.exports = {
   FAQ : [
     {
       "question": "How does registration work?",
-      "answer": "We currently only have preregistration open. Registration will open on ___ and close on ____. Admission is determined by a variety of factors. Due to a limited budget, we cannot have a random lottery."
+      "answer": "Registration will open on July 27 and close on August 30. Admission is determined by a variety of factors, but ultimately comes down to a few different lotteries (grouped by region). If you're curious, email us for more info!"
     },
     {
       "question": "What should I bring?",
@@ -18,7 +18,7 @@ module.exports = {
     },
     {
       "question": "What will I eat?",
-      "answer": "We will provide all meals and snacks from Friday's dinner until Sunday's lunch. We’ll be providing vegetarian and gluten-free options."
+      "answer": "We will provide all meals and snacks from Friday's dinner until Sunday's lunch. We’ll be providing vegetarian and gluten-free options, as well!."
     },
     {
       "question": "How do teams work?",
