@@ -12,6 +12,9 @@ var ImageCarousel = React.createClass({
           <img className="happy-people" src="img/spring1.png" />
         </CarouselItem>
         <CarouselItem>
+          <img className="happy-people" src="img/spring5.png" />
+        </CarouselItem>
+        <CarouselItem>
           <img className="happy-people" src="img/spring2.png" />
         </CarouselItem>
         <CarouselItem>

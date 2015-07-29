@@ -10,8 +10,6 @@ var cx = require('react-classset');
 var HACKATHON_NAME = 'VandyHacks II';
 var offset = 100; // roughly height of header + some padding
 var delay = 150;
-var schoolInvalid = false;
-var majorsInvalid = false;
 
 var USER_PROPS = [
   {name: 'email', required: true,},
@@ -39,23 +37,30 @@ class ApplicationUtils {
   }
 
   load() {
-    var hackathonQuery = new Parse.Query('Hackathon')
-      .equalTo('name', HACKATHON_NAME);
-    var applicationQuery = new Parse.Query('Application')
-      .matchesQuery('hackathon', hackathonQuery)
-      .equalTo('hacker', Parse.User.current());
+    var hackathonQuery = new Parse.Query('Hackathon');
+    hackathonQuery.equalTo('name', HACKATHON_NAME);
 
     hackathonQuery.find(
-      (hackathons) => {
+      function(hackathons) {
+        if (!hackathons) {
+          return;
+        }
+
         if (!hackathons.length) {
           throw new Error('Hackathon ${HACKATHON_NAME} not found');
         }
+
+        var applicationQuery = new Parse.Query('Application');
+        applicationQuery.matchesQuery('hackathon', hackathons[0]);
+        applicationQuery.equalTo('hacker', Parse.User.current());
+
         applicationQuery.find(
-          (apps) => {
+          function(apps) {
             if (apps.length) {
               this.ctx.setState({application: apps[0]});
             } else {
-              var app = new (Parse.Object.extend('Application'))();
+              var App = Parse.Object.extend('Application');
+              var app = new App();
               app.set('hacker', Parse.User.current());
               app.set('hackathon', hackathons[0]);
               app.save()
@@ -66,10 +71,11 @@ class ApplicationUtils {
                   ParseUtils.onError
                 );
             }
-          },
+          }.bind(this),
           ParseUtils.onError
-        );
-      }
+        )
+      }.bind(this),
+      ParseUtils.onError
     );
   }
 
@@ -101,6 +107,7 @@ class ApplicationUtils {
               },
               delay
             );
+            this.ctx.forceUpdate();
         }.bind(this), ParseUtils.onError);
     }
   }
@@ -136,6 +143,9 @@ class UserUtils {
             },
             delay
           );
+        this.ctx.setState({
+          schoolInvalid: true,
+        });
       } else if (!this.ctx.state.user.get('major')) {
         $('html, body')
           .animate(
@@ -144,6 +154,9 @@ class UserUtils {
             },
             delay
           );
+        this.ctx.setState({
+          majorsInvalid: true,
+        });
       }
       return null;
     }
@@ -151,6 +164,17 @@ class UserUtils {
 
   updateField(field, e) {
     this.ctx.state.user.set(field, e.target.value);
+
+    if (field === 'school') {
+      this.ctx.setState({
+        schoolInvalid: false,
+      });
+    } else if (field === 'majors') {
+      this.ctx.setState({
+        majorsInvalid: false,
+      });
+    }
+
     this.ctx.forceUpdate();
   }
 }
@@ -160,6 +184,8 @@ var Registration = React.createClass({
   getInitialState() {
     return {
       uploadAgain: false, // upload a new resume to replace old one
+      majorsInvalid: false,
+      schoolInvalid: false,
 
       user: Parse.User.current(),
       UserUtils: new UserUtils(this),
@@ -194,6 +220,12 @@ var Registration = React.createClass({
     if (Parse.User.current()) {
       this.state.ApplicationUtils.load();
     }
+
+    window.onbeforeunload = function() {
+      if (this.state.user.dirty() || this.state.application.dirty()) {
+        return "You have an unsaved registration!";
+      }
+    }.bind(this);
   },
 
   _onLoad() {
@@ -212,14 +244,18 @@ var Registration = React.createClass({
     if (resumeUpload && resumeUpload.files.length) {
       var file = resumeUpload.files[0];
 
-      var parseFile = new Parse.File(file.name, file);
+      var parts = file.name.split('.');
+      var last = parts[parts.length - 1];
+      last = last.replace(/\s+/g, '-').replace(/[^a-zA-Z-]/g, '').toLowerCase();
+
+      var parseFile = new Parse.File('resume.' + last, file);
       parseFile.save().then(
         (file) => {
           // attach File to user, then save
           this.state.user.set('resume', file);
           var promise = this.state.UserUtils.save();
           if (promise) {
-            save.then(() => this.state.ApplicationUtils.save(), ParseUtils.onError);
+            promise.then(() => this.state.ApplicationUtils.save(), ParseUtils.onError);
           }
 
           this.setState({ // TODO: iffy
@@ -238,8 +274,16 @@ var Registration = React.createClass({
   },
 
   _appStatus() {
-    return this.state.UserUtils.validate() &&
-      this.state.ApplicationUtils.validate();
+    if (this.state.UserUtils.validate() &&
+      this.state.ApplicationUtils.validate()) {
+      if (this.state.user.dirty() || this.state.application.dirty()) {
+        return <div ref="status" className="alert alert-warning" role="alert">Application Status: Unsaved</div>;
+      } else {
+        return <div ref="status" className="alert alert-success" role="alert">Application Status: Submitted</div>;
+      }
+    } else {
+      return <div ref="status" className="alert alert-danger" role="alert">Application Status: Incomplete</div>;
+    }
   },
 
   render() {
@@ -261,7 +305,7 @@ var Registration = React.createClass({
     }
     var schoolCSS = cx({
       'form-group': true,
-      'error': schoolInvalid,
+      'error': this.state.schoolInvalid,
     });
 
     var majorOpts = [];
@@ -272,15 +316,12 @@ var Registration = React.createClass({
     }
     var majorCSS = cx({
       'form-group': true,
-      'error': majorsInvalid,
+      'error': this.state.majorsInvalid,
     });
+
     return (
       <form onSubmit={this._onSave}>
-        {
-          this._appStatus() ?
-          <div ref="status" className="alert alert-success" role="alert">Application Status: Submitted</div> :
-          <div ref="status" className="alert alert-danger" role="alert">Application Status: Incomplete</div>
-        }
+        {this._appStatus()}
         <div className="form-group">
           <label htmlFor="email" className="required">Email address*</label>
           <input
@@ -356,6 +397,7 @@ var Registration = React.createClass({
                 this.state.UserUtils.updateField('school', {target: {value: val}});
               }
             } />
+            <p className="help-block">Type your school in the box above to search</p>
         </div>
         <div className="form-group">
           <label className="required">Graduating Year*</label>
@@ -455,21 +497,36 @@ var Registration = React.createClass({
           </div>
         </div>
         <div className="form-group">
-            <div className="checkbox">
-              <label className="required" htmlFor="needsTravelReimbursement">
-                <input
-                  type="checkbox"
-                  id="needsTravelReimbursement"
-                  checked={application.get('needsTravelReimbursement')}
-                  onChange={
-                    (e) => {
-                      var oldVal = application.get('needsTravelReimbursement');
-                      this.state.ApplicationUtils.updateField('needsTravelReimbursement', {target:{value: !oldVal}});
-                    }
-                  } />
-                Do you need travel reimbursement?*
-              </label>
-            </div>
+          <label className="required">Do you need travel reimbursement?*</label>
+          <div>
+            <label className="radio-inline">
+              <input
+                type="radio"
+                name="needsTravelReimbursement"
+                id="needsTravelReimbursement1"
+                required="required"
+                checked={application.get('needsTravelReimbursement') === true}
+                onChange={
+                  (e) => {
+                    var val = e.target.checked;
+                    this.state.ApplicationUtils.updateField('needsTravelReimbursement', {target:{value: val}});
+                  }
+                } /> Yes
+            </label>
+            <label className="radio-inline">
+              <input type="radio"
+                name="needsTravelReimbursement"
+                id="needsTravelReimbursement2"
+                required="required"
+                checked={application.get('needsTravelReimbursement') === false}
+                onChange={
+                  (e) => {
+                    var val = e.target.checked;
+                    this.state.ApplicationUtils.updateField('needsTravelReimbursement', {target:{value: !val}});
+                  }
+                } /> No
+            </label>
+          </div>
         </div>
         <div className="form-group">
           <label htmlFor="github">Github/LinkedIn</label>
