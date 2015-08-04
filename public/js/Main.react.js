@@ -68,6 +68,9 @@ var Main = React.createClass({
             <a href="http://www.digitalocean.com/" target="_do">
               <img src="img/logos/DO.svg" className="spnsr-logo" />
             </a>
+            <a href="http://www.epic.com/" target="_epic">
+              <img src="img/logos/epic.jpg" className="spnsr-logo" />
+            </a>
             <p>Interested in sponsoring? Contact us at <a href="mailto:info@vandyhacks.org" className="gold">info@vandyhacks.org</a>.</p>
           </div>
         </div>
