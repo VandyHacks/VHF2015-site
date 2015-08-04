@@ -63,6 +63,7 @@ class ApplicationUtils {
               var app = new App();
               app.set('hacker', Parse.User.current());
               app.set('hackathon', hackathons[0]);
+              app.set('useragent', window.navigator.userAgent);
               app.save()
                 .then(
                   (app) => {
