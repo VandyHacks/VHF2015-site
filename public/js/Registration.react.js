@@ -99,6 +99,7 @@ class ApplicationUtils {
   save() {
     if (this.validate()) {
       // TODO: all props are valid, send to server, update UI with good-alert
+      this.ctx.state.application.set('useragent', window.navigator.userAgent);
       this.ctx.state.application.save()
         .then(function() {
           $('html, body')

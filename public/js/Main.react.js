@@ -71,6 +71,15 @@ var Main = React.createClass({
             <a href="http://www.epic.com/" target="_epic">
               <img src="img/logos/epic.jpg" className="spnsr-logo" />
             </a>
+            <a href="http://www.launchtn.org/" target="_ltn">
+              <img src="img/logos/launchtn.jpg" className="spnsr-logo" />
+            </a>
+            <a href="http://www.capitalone.com/" target="_co">
+              <img src="img/logos/capitalone.svg" className="spnsr-logo" />
+            </a>
+            <a href="http://www.stickermule.com/" target="_mule">
+              <img src="img/logos/stickermule.png" className="spnsr-logo" />
+            </a>
             <p>Interested in sponsoring? Contact us at <a href="mailto:info@vandyhacks.org" className="gold">info@vandyhacks.org</a>.</p>
           </div>
         </div>
@@ -82,8 +91,8 @@ var Main = React.createClass({
           <a href="https://mlh.io/" target="_partner">
             <img src="img/logos/mlh.svg" className="spnsr-logo" />
           </a>
-          <a href="http://challengepost.com/" target="_partner">
-            <img src="img/logos/challengepost.png" className="spnsr-logo" />
+          <a href="http://devpost.com/" target="_partner">
+            <img src="img/logos/devpost.svg" className="spnsr-logo" />
           </a>
           <a href="https://www.thalmic.com/myo/" target="_partner">
             <img src="img/logos/myo.png" className="spnsr-logo" />
