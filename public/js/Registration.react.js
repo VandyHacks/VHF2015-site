@@ -214,9 +214,11 @@ var Registration = React.createClass({
 
     // Load initial data
     new Parse.Query('Major')
+      .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
       .find((majors) => this.setState({majors}), ParseUtils.onError);
 
     new Parse.Query('School')
+      .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
       .find((schools) => this.setState({schools}), ParseUtils.onError);
 
     if (Parse.User.current()) {

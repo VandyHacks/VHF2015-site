@@ -48,7 +48,7 @@ var Main = React.createClass({
 
       <Element name="apply" className="element">
         <div className="row info-row">
-          <div className="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-4 text-center">
+          <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
             <h1 className="title gold">Register</h1>
             <Registration />
           </div>
@@ -71,11 +71,35 @@ var Main = React.createClass({
             <a href="http://www.epic.com/" target="_epic">
               <img src="img/logos/epic.jpg" className="spnsr-logo" />
             </a>
-            <a href="http://www.launchtn.org/" target="_ltn">
-              <img src="img/logos/launchtn.jpg" className="spnsr-logo" />
+            <a href="http://www.lexmark.com/" target="_lm">
+              <img src="img/logos/lexmark.svg" className="spnsr-logo" />
             </a>
             <a href="http://www.capitalone.com/" target="_co">
               <img src="img/logos/capitalone.svg" className="spnsr-logo" />
+            </a>
+            <a href="http://www.yikyakapp.com" target="_yik">
+              <img src="img/logos/yikyak.png" className="spnsr-logo" />
+            </a>
+            <a href="http://www.eventbrite.com/" target="_eb">
+              <img src="img/logos/eventbrite.png" className="spnsr-logo" />
+            </a>
+            <a href="http://www.launchtn.org/" target="_ltn">
+              <img src="img/logos/launchtn.jpg" className="spnsr-logo" />
+            </a>
+            <a href="http://www.leankit.com/" target="_lk">
+              <img src="img/logos/leankit.svg" className="spnsr-logo" />
+            </a>
+            <a href="http://metova.com/" target="_mt">
+              <img src="img/logos/metova.png" className="spnsr-logo" />
+            </a>
+            <a href="http://engineering.vanderbilt.edu/" target="_vuse">
+              <img src="img/logos/vuse.svg" className="spnsr-logo" />
+            </a>
+            <a href="http://mercury.io/" target="_m">
+              <img src="img/logos/mercury.svg" className="spnsr-logo" />
+            </a>
+            <a href="http://www.lunarlincoln.com/" target="_l">
+              <img src="img/logos/lunarlincoln.svg" className="spnsr-logo" />
             </a>
             <a href="http://www.stickermule.com/" target="_mule">
               <img src="img/logos/stickermule.png" className="spnsr-logo" />
