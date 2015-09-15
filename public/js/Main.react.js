@@ -1,3 +1,4 @@
+var ApplicationStatus = require('./ApplicationStatus.react');
 var constants = require('./constants');
 var FAQ = require('./FAQ.react');
 var React = require('react');
@@ -50,7 +51,13 @@ var Main = React.createClass({
         <div className="row info-row">
           <div className="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 text-center">
             <h1 className="title gold">Register</h1>
-            <Registration />
+            <h3>Sorry, registration is closed!</h3>
+            <h5>If you're a university student in Nashville, you're free to show up at the door.</h5>
+            <h5>If you're a student at Georgia Tech, Duke, Purdue, or UNC, we are providing you with first-come-first-serve bus transportation.
+              Registered students get priority, but there may still be room on the bus, so show up and give it a shot if you didn't register! Specific pickup time and location will be announced shortly.</h5>
+
+            <h1 className="title gold text-center">Application Status</h1>
+            <ApplicationStatus/>
           </div>
         </div>
       </Element>

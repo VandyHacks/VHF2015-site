@@ -165,17 +165,24 @@ class UserUtils {
   }
 
   updateField(field, e) {
-    this.ctx.state.user.set(field, e.target.value);
-
-    if (field === 'school') {
-      this.ctx.setState({
-        schoolInvalid: false,
-      });
-    } else if (field === 'majors') {
-      this.ctx.setState({
-        majorsInvalid: false,
-      });
+    if (field === 'major') {
+      console.log(169);
+      console.log(e.target.value);
+      console.log(e.target.value.split(','))
+      this.ctx.state.user.set(field, e.target.value.split(','));
+    } else {
+      this.ctx.state.user.set(field, e.target.value);
     }
+
+    // if (field === 'school') {
+    //   this.ctx.setState({
+    //     schoolInvalid: false,
+    //   });
+    // } else if (field === 'majors') {
+    //   this.ctx.setState({
+    //     majorsInvalid: false,
+    //   });
+    // }
 
     this.ctx.forceUpdate();
   }
@@ -212,14 +219,14 @@ var Registration = React.createClass({
        $(e.target).removeClass("invalid");
     }, true);
 
-    // Load initial data
-    new Parse.Query('Major')
-      .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
-      .find((majors) => this.setState({majors}), ParseUtils.onError);
-
-    new Parse.Query('School')
-      .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
-      .find((schools) => this.setState({schools}), ParseUtils.onError);
+    // // Load initial data
+    // new Parse.Query('Major')
+    //   .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
+    //   .find((majors) => this.setState({majors}), ParseUtils.onError);
+    //
+    // new Parse.Query('School')
+    //   .limit(1000) // TODO: if we have more than 1000 schools, we're gonna have an issue...
+    //   .find((schools) => this.setState({schools}), ParseUtils.onError);
 
     if (Parse.User.current()) {
       this.state.ApplicationUtils.load();
@@ -301,27 +308,27 @@ var Registration = React.createClass({
       return null;
     }
 
-    var schoolOpts = [];
-    if (schools) {
-      schools.forEach(school => {
-        schoolOpts.push({label: school.get('name'), value: school.get('name')});
-      });
-    }
-    var schoolCSS = cx({
-      'form-group': true,
-      'error': this.state.schoolInvalid,
-    });
-
-    var majorOpts = [];
-    if (majors) {
-      majors.forEach(major => {
-        majorOpts.push({label: major.get('name'), value: major.get('name')});
-      });
-    }
-    var majorCSS = cx({
-      'form-group': true,
-      'error': this.state.majorsInvalid,
-    });
+    // var schoolOpts = [];
+    // if (schools) {
+    //   schools.forEach(school => {
+    //     schoolOpts.push({label: school.get('name'), value: school.get('name')});
+    //   });
+    // }
+    // var schoolCSS = cx({
+    //   'form-group': true,
+    //   'error': this.state.schoolInvalid,
+    // });
+    //
+    // var majorOpts = [];
+    // if (majors) {
+    //   majors.forEach(major => {
+    //     majorOpts.push({label: major.get('name'), value: major.get('name')});
+    //   });
+    // }
+    // var majorCSS = cx({
+    //   'form-group': true,
+    //   'error': this.state.majorsInvalid,
+    // });
 
     return (
       <form onSubmit={this._onSave}>
@@ -373,35 +380,17 @@ var Registration = React.createClass({
             <option value="other">Other</option>
           </select>
         </div>
-        <div className={schoolCSS} ref="school">
-          <label className="required">School*</label>
-          <Select
+        <div className="form-group">
+          <label htmlFor="school" className="required">School*</label>
+          <input
+            id="school"
+            type="text"
+            className="form-control"
+            placeholder="School"
+            required="required"
             value={user.get('school')}
-        		allowCreate={true}
-        		placeholder="Select your school"
-        		options={schoolOpts}
-        		onChange={
-              (val) => {
-                if (val === '') {
-                  this.state.UserUtils.updateField('school', {target: {value: null}});
-                  return;
-                }
-
-                var opts = schoolOpts.filter(opt => {
-                  return opt.value === val;
-                });
-                if (!opts.length) {
-                  var School = Parse.Object.extend('School');
-                  var newSchool = new School();
-
-                  newSchool.set('name', val)
-                    .save(function(){}, ParseUtils.onError);
-                }
-
-                this.state.UserUtils.updateField('school', {target: {value: val}});
-              }
-            } />
-            <p className="help-block">Type your school in the box above to search</p>
+            onChange={this.state.UserUtils.updateField.bind(this.state.UserUtils, 'school')}
+          />
         </div>
         <div className="form-group">
           <label className="required">Graduating Year*</label>
@@ -419,39 +408,17 @@ var Registration = React.createClass({
             <option value="other">Other</option>
           </select>
         </div>
-        <div className={majorCSS} ref="major">
-          <label className="required">Major(s)*</label>
-          <Select
-        		value={user.get('major')}
-            multi={true}
-            delimiter={'***'}
-        		allowCreate={true}
-        		placeholder="Select your major(s)"
-        		options={majorOpts}
-        		onChange={
-              (val) => {
-                if (val === '') {
-                  this.state.UserUtils.updateField('major', {target: {value: null}});
-                  return;
-                }
-
-                var majors = val.split('***');
-                majors.forEach(major => {
-                  var opts = majorOpts.filter(opt => {
-                    return opt.value === major;
-                  });
-                  if (!opts.length) {
-                    var Major = Parse.Object.extend('Major');
-                    var newMajor = new Major();
-
-                    newMajor.set('name', major)
-                      .save(function(){}, ParseUtils.onError);
-                  }
-                });
-
-                this.state.UserUtils.updateField('major', {target: {value: majors}});
-              }
-            } />
+        <div className="form-group">
+          <label htmlFor="major" className="required">Major(s)*</label>
+          <input
+            id="major"
+            type="text"
+            className="form-control"
+            placeholder="Major(s)"
+            required="required"
+            value={user.get('major')}
+            onChange={this.state.UserUtils.updateField.bind(this.state.UserUtils, 'major')}
+          />
         </div>
         <div className="form-group">
           <label className="required">Shirt Size*</label>
