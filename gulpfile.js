@@ -68,7 +68,15 @@ gulp.task('watch-less', function() {
       .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('dev', ['watch-js', 'watch-less']);
+gulp.task('watch-css', ['watch-less'], function() {
+  watch('public/css/**/*.css', function () {
+    gulp.src(['public/css/**/*.css', '!public/css/styles.min.css'])
+      .pipe(concat("styles.min.css"))
+      .pipe(gulp.dest('public/css'));
+  });
+});
+
+gulp.task('dev', ['watch-js', 'watch-less', 'watch-css']);
 
 /***** PROD TASKS *****/
 gulp.task('html', function() {
